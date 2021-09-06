@@ -1,0 +1,194 @@
+
+/* Cabeza y Cuerpo */
+html, body {
+  overflow-x:hidden;
+  margin: 0px;
+  padding: 0px;
+  font-family: 'Fira Sans', 'Open Sans Condensed', sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+/* Barra de menu*/
+.barra-top {
+  position: fixed;
+  width: 100%;
+  z-index: 1;
+}
+
+.logo{
+  width: 100px;
+}
+.barra .barra-item {
+  padding: 8px 16px;
+  float: left;
+  width: auto;
+  border: none;
+  display: block;
+  outline: 0;
+  font-size: 18px;
+}
+
+.barra {
+  width: 100%;
+  overflow: hidden;
+}
+
+.alinear-derecha {
+  float: right !important;
+  margin-right: 7%;
+  text-align: right;
+}
+
+.sombreado {
+  box-shadow: 0 2px 5px 0 rgb(0 0 0 / 16%), 0 2px 10px 0 rgb(0 0 0 / 12%);
+}
+
+.boton {
+  text-decoration: none;
+  color: black
+}
+a:visited,a:link {
+  color: black
+}
+
+
+/* Encabezado con imagen */
+img {
+  vertical-align: middle;
+  width: 100%;
+}
+
+.w3-display-container {
+  position: relative;
+}
+
+.w3-content {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 100%;
+  min-width:500px
+}
+
+.display-abajoizquierda {
+  position: absolute;
+  left: 5;
+  bottom: 0;
+}
+
+.texto-imagen {
+  font-size: 36px;
+  background-color: white;
+  margin-left: 10px;
+  opacity: 0.65;
+}
+
+.bubbles {
+  stroke-width: 2px;
+  stroke: white;
+}
+
+.bubbles:hover {
+  stroke: black;
+}
+
+.plotcontainer {
+  padding-bottom: 10px;
+  padding-top: 50px;
+  position: relative;
+  height: 600px;
+  display: inline-flex;
+}
+
+.plot {
+  position: relative;
+  width: 70%
+}
+
+
+/* mapa*/
+.map {
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  background: none;
+}
+
+#map-background,
+#map-container,
+#map-overlay,
+#content {
+  width: 100%;
+  min-height: 100%;
+  position: absolute;
+}
+
+#map-background {
+  z-index: -1;
+  height: auto;
+  background-size: 100% 100%;
+  align-content: center;
+}
+
+#map-container {
+  z-index: 0;
+  margin: auto;
+  position: absolute;
+  width: 100%;
+  padding-top: 0%;
+}
+
+.dot {
+  z-index: 0;
+  margin: auto;
+  position: absolute;
+  left: 25%;
+  width: 50%;
+  padding-top: 50%;
+  background-color:white;
+  border-radius: 50%;
+  opacity: 0.5;
+}
+
+.map-overlay {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  background: rgba(255, 255, 255, 0.8);
+  margin-right: 20px;
+  border-radius: 3px;
+}
+
+
+#features {
+  top: 0px;
+  height: 100px;
+  margin-top: 1%;
+  width: 300px;
+}
+
+#legend {
+  padding: 0.5%;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  font-size: 12px;
+  line-height: 20px;
+  height: 240px;
+  margin-bottom: 40px;
+  width: 100px;
+}
+
+.legend-key {
+  z-index: 1;
+  border-radius: 20%;
+  width: 10px;
+  height: 10px;
+  display: inline-block;
+  margin-right: 10px;
+}
+
+
+.parrafo {
+    margin-right:8%;
+    font-weight: 400;
+    text-align: justify;
+}

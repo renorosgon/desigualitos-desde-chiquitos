@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- Metadata -->
+    <meta charset="utf-8">
+    <title>Desigualitos desde chiquitos.</title>
+    <autor René Rosado González >
+    <!-- Estilo -->
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@100;400;800&display=swap" rel="stylesheet">
+    <!-- Carga mapbox -->
+    <link href="https://api.mapbox.com/mapbox-gl-js/v2.4.1/mapbox-gl.css" rel="stylesheet">
+    <script src="https://api.mapbox.com/mapbox-gl-js/v2.4.1/mapbox-gl.js"></script>
+    <!-- Carga AOS -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <!-- Carga d3.js -->
+    <script src="https://d3js.org/d3.v4.js"></script>
+  </head>
+
+  <body>
+    <!--Inicia AOS -->
+    <script> AOS.init(); </script>
+
+    <!-- Barra Superior -->
+    <div class="barra-top">
+      <div class="barra sombreado" style="background-color:white">
+        <a class="barra-item boton" style="margin-left:4.5%"><strong>Desigualitos desde chiquitos.</strong></a>
+        <!-- Elementos a esconder con pantallas pequeñas -->
+        <div class="alinear-derecha" style="right-left:4.5%">
+          <a href="mailto:rrosado@centro.edu.mx" class="barra-item boton"><strong> por René Rosado González<strong></a>
+          <a href="https://www3.centro.edu.mx/Posgrados/visualizacion-de-datos.html" class="barra-item boton">
+            <img class="logo" src="https://raw.githubusercontent.com/renorosgon/desigualitos-desde-chiquitos/main/estructura_web/imagenes/logo_centro.png" alt="CENTRO">
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Imagen 1 -->
+    <div class="w3-display-container w3-content">
+      <img class="imagen" src="https://raw.githubusercontent.com/renorosgon/desigualitos-desde-chiquitos/main/estructura_web/imagenes/imagen_S1.jpg">
+      <div class="display-abajoizquierda" style="margin-left:4.5%">
+        <h1 class="texto-imagen text">Ingresos desiguales y dos realidades distintas.</h1>
+      </div>
+    </div>
+    <!-- Gráfico 1 -->
+    <div class="plotcontainer" data-aos="zoom-in-down" data-aos-offset="200" data-aos-delay="200" data-aos-duration="1500">
+      <div class="scatterplot plot"></div>
+      <p class="parrafo">La suficiencia en la disponibilidad de planteles educativos y su relación con el ingreso depende de quién pone los recursos.
+        <br>
+        <br>
+        A mayor ingreso existe una mayor disponibilidad de escuelas públicas por cada 1000 estudiantes inscritos.
+        Mientras que a mayor ingreso existe una menor disponibilidad de escuelas particulares por cada 1000 estudiantes inscritos.
+      </p>
+    </div>
+
+    <!-- Imagen 2 -->
+    <div class="w3-display-container w3-content">
+      <img class="imagen" src="https://raw.githubusercontent.com/renorosgon/desigualitos-desde-chiquitos/main/estructura_web/imagenes/imagen_S2.jpg">
+      <div class="display-abajoizquierda" style="margin-left:4.5%">
+        <h1 class="texto-imagen text">Más ingreso y más atención por estudiante.</h1>
+      </div>
+    </div>
+
+    <!-- Gráfico 2 -->
+    <div class="plotcontainer" data-aos="zoom-in-down" data-aos-offset="200" data-aos-delay="200" data-aos-duration="1500">
+      <div class="segmentplot plot">
+      </div>
+      <p class="parrafo">
+        Las escuelas públicas en las alcaldías de menores ingresos suelen tener más estudiantes por grupo.
+        <br>
+        <br>
+        En primedio, por cada 10 alumnos en un grupo de educación particular, hay 15 en un grupo de educación pública en la CDMX.
+      </p>
+    </div>
+    <!-- Imagen 3 -->
+    <div class="w3-display-container w3-content" id="home">
+      <img class="imagen" src="https://raw.githubusercontent.com/renorosgon/desigualitos-desde-chiquitos/main/estructura_web/imagenes/imagen_S5.jpg">
+      <div class="display-abajoizquierda" style="margin-left:4.5%">
+        <h1 class="texto-imagen text">Docentes: La cifra ambigua.</h1>
+      </div>
+    </div>
+    <!-- Gráfico 3 -->
+    <div class="plotcontainer" data-aos="zoom-in-down" data-aos-offset="200" data-aos-delay="200" data-aos-duration="1500">
+      <div class="colision plot">
+      </div>
+      <p class="parrafo">Las fuentes oficiales definen al personal docente como
+        <i>“el conjunto de individuos adscritos a un centro de trabajo, de acuerdo a la función que realizan en el mismo.
+          A cada uno se le considera tantas veces como en centros de trabajo esté adscrito”.
+        </i>
+        <br>
+        <br>
+        Lo anterior implica que se desconoce la cifra exacta de personal docente, su ubicación y el número de planteles al que está adscrito.
+      </p>
+    </div>
+    <!-- Imagen 4 -->
+    <div class="w3-display-container w3-content" id="home">
+      <img class="imagen" src="https://raw.githubusercontent.com/renorosgon/desigualitos-desde-chiquitos/main/estructura_web/imagenes/imagen_S4.jpg">
+      <div class="display-abajoizquierda" style="margin-left:4.5%">
+        <h1 class="texto-imagen text">El mapa de la desgualdad.</h1>
+      </div>
+    </div>
+    <!-- Mapa -->
+    <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-compare/v0.4.0/mapbox-gl-compare.js"></script>
+    <link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-compare/v0.4.0/mapbox-gl-compare.css" type="text/css">
+    <div id="map-background">
+      <div class="dot"></div>
+        <div id="map-container" >
+          <div id="before" class="map" style="position:absolute;"></div>
+          <div id="after" class="map" style="position:absolute;"></div>
+        </div>
+      <div class='map-overlay' id='features' style="position:relative;padding: 20px">
+        <h3>Información de la alcaldía:</h3>
+        <div id='pd'>
+          <p style="margin-top:-15px;">Da click en las alcaldías para saber más...</p>
+        </div>
+      </div>
+      <div class='map-overlay' id='legend'></div>
+    </div>
+    <!--cargamos los gráficos-->
+    <script>
+      // CARGA Y CONSTRUCCIÓN DE MAPAS
+      // Fijar token de acceso
+      mapboxgl.accessToken = 'pk.eyJ1IjoicmVucm9zb2dvbiIsImEiOiJja3JtcXBrdXUyMWhrMzFvNHI2aXpmNHFvIn0.VI8OlZ8Zf-BaY6NAeX-32A';
+
+      // Construir el mapa antes (izqueirda)
+      const beforeMap = new mapboxgl.Map({
+        container: 'before',
+        style: 'mapbox://styles/renrosogon/cksmcif0m48q817o35mx5i1k3',
+        center: [-99.13, 19.32],
+        zoom: 9.3
+      });
+
+      // Inhabilitar el scrolling
+      beforeMap.scrollZoom.disable();
+      beforeMap.doubleClickZoom.disable();
+
+      // Construir el mapa después (derecha)
+      const afterMap = new mapboxgl.Map({
+        container: 'after',
+        style: 'mapbox://styles/renrosogon/cksmckp1l1m8a18pbfhoktp6t',
+        center: [-99.13, 19.32],
+        zoom: 9.3
+      });
+
+      // Inhabilitar el scrolling y drag
+      afterMap.scrollZoom.disable();
+      afterMap.doubleClickZoom.disable();
+      // Construir el contenedor donde vivirán los mapas
+      const container = '#map-container';
+      // Construir el mapa final
+      const map = new mapboxgl.Compare(beforeMap, afterMap, container, {});
+
+      // CONSTRUCCIÓN DE POPUPS
+      // Construimos un popup
+      const popup = new mapboxgl.Popup({
+        closeButton: false,
+        closeOnClick: true
+      });
+
+      // Popup del mapa antes
+      beforeMap.on('click', 'publicas-58t8nv', (e) => {
+      // Interacción con puntero
+      beforeMap.getCanvas().style.cursor = 'pointer';
+      // Legenda del popup.
+      const description = '<b>' + e.features[0].properties.NOMGEO + '</b><br>' +
+                          '<b> Alumnos: </b>' + e.features[0].properties.Alumnos + '<br>' +
+                          '<b> Escuelas: </b>' + e.features[0].properties.Escuelas + '<br>' +
+                          '<b> Docentes: </b>' + e.features[0].properties.Docentes + '<br>' ;
+
+      // Construir el popup con base en coordenadas y descripcion
+      popup.setLngLat(e.lngLat)
+            .setHTML(description)
+            .addTo(beforeMap);
+      });
+      // Desaparecer el popup
+      beforeMap.on('mouseleave', 'publicas-58t8nv', () => {
+            beforeMap.getCanvas().style.cursor = '';
+            popup.remove();
+      });
+      // Popup del mapa después
+      afterMap.on('click', 'privadas-0x878i', (e) => {
+      // Interacción con puntero
+      afterMap.getCanvas().style.cursor = 'pointer';
+
+      // Legenda del popup.
+      const description = '<b>' + e.features[0].properties.NOMGEO + '</b><br>' +
+                          '<b> Alumnos: </b>' + e.features[0].properties.Alumnos + '<br>' +
+                          '<b> Escuelas: </b>' + e.features[0].properties.Escuelas + '<br>' +
+                          '<b> Docentes: </b>' + e.features[0].properties.Docentes + '<br>' ;
+
+      // Construir el popup con base en coordenadas y descripcion
+      popup.setLngLat(e.lngLat)
+            .setHTML(description)
+            .addTo(afterMap);
+      });
+      // Desaparecer el popup
+      afterMap.on('mouseleave', 'privadas-0x878i', () => {
+            afterMap.getCanvas().style.cursor = '';
+            popup.remove();
+      });
+
+      beforeMap.on('load', function() {
+      // Legenda
+      var layers = ['Públicas','2.5 o menos','2.5 a 3','3 a 3.5','3.5 a 4','4 a 6','Particulares','6 a 7', '7 a 8', '8 a 9', '9 a 10', '10 o más'];
+      var colors = ['','#127a76', '#488e8b', '#6fa5a1', '#91bab8', '#b7d1cf','','#df753a','#eb9060','#f4ac86','fbc7ad','fcd0bb'];
+      for (i = 0; i < layers.length; i++) {
+              var layer = layers[i];
+              var color = colors[i];
+              var item = document.createElement('div');
+              var key = document.createElement('span');
+              key.className = 'legend-key';
+              key.style.backgroundColor = color;
+              var value = document.createElement('span');
+              value.innerHTML = layer;
+              item.appendChild(key);
+              item.appendChild(value);
+              legend.appendChild(item);
+            }
+          });
+      beforeMap.on('mousemove', function(e) {
+        var states = beforeMap.queryRenderedFeatures(e.point, {
+          layers: ['publicas-58t8nv']
+        });
+
+        if (states.length > 0) {
+          document.getElementById('pd').innerHTML = '<p style="margin-top:-15px;"><strong>' + states[0].properties.NOMGEO + '</strong> tiene <strong>' + (10 * states[0].properties.EscPerCap).toFixed(2) + ' escuelas públicas </strong> por cada mil estudiantes.</em></p>';
+        } else {
+          document.getElementById('pd').innerHTML = '<p style="margin-top:-15px;">Da click en las alcaldías para saber más...</p>';
+        }
+      });
+
+      afterMap.on('mousemove', function(e) {
+        var states = afterMap.queryRenderedFeatures(e.point, {
+          layers: ['privadas-0x878i']
+        });
+
+        if (states.length > 0) {
+          document.getElementById('pd').innerHTML = '<p style="margin-top:-15px;"><strong>' + states[0].properties.NOMGEO + '</strong> tiene <strong>' + (10 * states[0].properties.EscPerCap).toFixed(2) + ' escuelas particulares </strong> por cada mil estudiantes.</em></p>';
+        } else {
+          document.getElementById('pd').innerHTML = '<p style="margin-top:-15px;">Da click en las alcaldías para saber más...</p>';
+        }
+      });
+    </script>
+    <script src="scatterplot.js"></script>
+    <script src="segment.js"></script>
+    <script src="colisiones.js"></script>
+  </body>
+</html>
